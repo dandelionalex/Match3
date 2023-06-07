@@ -13,10 +13,23 @@ namespace UI
         private TMP_InputField height;
 
         [SerializeField]
-        private Button startButton;
+        private TMP_InputField leftToWin;
 
         [SerializeField]
+        private TMP_InputField variaty;
+
+        [SerializeField]
+        private Button startButton;
+
         private BoardPresenter boardPresenter;
+        
+        private GameSession gameSession;
+
+        private void Awake()
+        {
+            gameSession = FindObjectOfType<GameSession>();
+            boardPresenter = FindObjectOfType<BoardPresenter>();
+        }
 
         private void OnEnable()
         {
@@ -30,12 +43,12 @@ namespace UI
 
         private void OnStartClick()
         {
-            Debug.Log($"width.text {width.text} height {height.text}");
             int w = int.Parse(width.text);
             int h = int.Parse(height.text);
-            Debug.Log($"OnStartClick w: {w}, h: {h}");
-            boardPresenter.GenerateBoard(w,h);
-            gameObject.SetActive(false);
+            int leftTW = int.Parse(leftToWin.text);
+            int v = Mathf.Clamp( int.Parse(variaty.text), 1, 5 );
+            Debug.Log($"v: {v}");
+            gameSession.StartGame( w,h, leftTW, v );
         }
     }
 }

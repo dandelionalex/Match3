@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3328036050857988878}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -94,7 +94,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7339842369199606217}
   - component: {fileID: 7339842369199606216}
-  - component: {fileID: 8828996371350699123}
+  - component: {fileID: -6310699082251610022}
   m_Layer: 0
   m_Name: Tile
   m_TagString: Untagged
@@ -132,13 +132,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprites:
-  - {fileID: -763664167, guid: 04d468fd622b74f44ae7ed9f987a76bd, type: 3}
-  - {fileID: 1850982397, guid: 04d468fd622b74f44ae7ed9f987a76bd, type: 3}
-  - {fileID: 1651246576, guid: 04d468fd622b74f44ae7ed9f987a76bd, type: 3}
-  - {fileID: -247797976, guid: 04d468fd622b74f44ae7ed9f987a76bd, type: 3}
+  - {fileID: 843460609, guid: 084cd880202784b95a83268dc364c523, type: 3}
+  - {fileID: -693756561, guid: 084cd880202784b95a83268dc364c523, type: 3}
+  - {fileID: 282667781, guid: 084cd880202784b95a83268dc364c523, type: 3}
+  - {fileID: -680324447, guid: 084cd880202784b95a83268dc364c523, type: 3}
+  - {fileID: 871658070, guid: 084cd880202784b95a83268dc364c523, type: 3}
+  - {fileID: 1897880718, guid: 084cd880202784b95a83268dc364c523, type: 3}
   spriteRenderer: {fileID: 7339842369638484003}
   selectedGO: {fileID: 2301233355571458715}
---- !u!61 &8828996371350699123
+  debugPosition: {x: 0, y: 0}
+  prev: {x: 0, y: 0}
+--- !u!61 &-6310699082251610022
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -162,7 +166,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.9, y: 0.9}
+  m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
 --- !u!1 &7339842369638484000
 GameObject:

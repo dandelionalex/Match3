@@ -13,6 +13,9 @@ public class Tile : MonoBehaviour
     [SerializeField]
     private SpriteRenderer selectedGO;
 
+    [SerializeField]
+    private Vector2Int debugPosition;
+
     private bool selected = false;
     private bool enabledForSelection = true;
 
@@ -29,20 +32,29 @@ public class Tile : MonoBehaviour
             return;
 
         Pos = pos;
+        debugPosition = Pos;
         IconId = iconId; 
         spriteRenderer.sprite = sprites[iconId];
         OnTileSelected = onTileSelected;
     }
 
-    public void MoveTo(Vector2Int pos, Action moveDone)
+    public void MoveByY(int y, Action moveDone)
     {
-        transform.DOLocalMove( new Vector3(pos.x, pos.y, 0), 1)
+        Debug.Log("MoveByY");
+        var target = new Vector3(Pos.x, Pos.y + y, 0);
+        Pos = new Vector2Int(Pos.x, Pos.y + y);
+        debugPosition = Pos;
+        transform.DOLocalMove( target, 1)
             .OnComplete( () => { moveDone.Invoke(); });
     }
 
-    public void UpdatePositions(Vector2Int pos)
+    public void MoveTo(Vector2Int pos, Action moveDone)
     {
-        this.Pos = pos;
+        Debug.Log("MoveTo");
+        Pos = pos;
+        debugPosition = Pos;
+        transform.DOLocalMove( new Vector3(pos.x, pos.y, 0), 1)
+            .OnComplete( () => { moveDone.Invoke(); });
     }
 
     public bool EnableForSelection 
@@ -53,9 +65,9 @@ public class Tile : MonoBehaviour
         }
     }
 
-    public void SelectD()
+    public void Selectd(bool selected)
     {
-        selectedGO.gameObject.SetActive(true);
+        selectedGO.gameObject.SetActive(selected);
     }
     
     private void OnMouseDown()
